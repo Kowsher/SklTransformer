@@ -33,29 +33,49 @@ sklt =SklTransformer.SklT(tokenizer_name="bert-base-uncased", model_name="bert-b
 ```
 'sklt' will carray a object of SklTransformer
 In order to fine-tuning, we have to check the parameter 'fine-tuning' as true. By default it's false.
-For supervised fine tuning we have to check some parameters 
-tokenizer_name (Need to pass model name or path),
-model_name (Need to pass tokenizer_nameor path),
-fine_tuning=False (Need to pass as true),
-X_train (Need to pass traing text, it can be array, list),
-y_train (Need to pass traing labels, it can be array, list),
-X_val (Need to pass validation text, it can be array, list),
-y_val (Need to pass validation labels, it can be array, list,
+
+-> For supervised fine tuning we have to check some parameters 
+
+-> tokenizer_name (Need to pass model name or path),
+
+-> model_name (Need to pass tokenizer_nameor path),
+
+-> fine_tuning=False (Need to pass as true),
+
+-> X_train (Need to pass traing text, it can be array, list),
+
+-> y_train (Need to pass traing labels, it can be array, list),
+
+-> X_val (Need to pass validation text, it can be array, list),
+
+-> y_val (Need to pass validation labels, it can be array, list,
 nub_epoch (Number of epochs, by default 10),
-batch_size (Number of batch sizes, by default 8),
-save_steps (Number of saving checkpoint and evaluation, by default 5000),
-save_total_limit (Number of saving checkpoint, by default 1 that means, it will only save the best checkpoint)
-stopping_callback (Early stopping callback of traing, by default 4)
-save_path (Model saving path),
-max_length (Maximum length of every sample, by default 512)
-device (In which device, we want to traing model, default automatic choose of device according to environment)
+
+-> batch_size (Number of batch sizes, by default 8),
+
+-> save_steps (Number of saving checkpoint and evaluation, by default 5000),
+
+-> save_total_limit (Number of saving checkpoint, by default 1 that means, it will only save the best checkpoint)
+
+-> stopping_callback (Early stopping callback of traing, by default 4)
+
+-> save_path (Model saving path),
+
+-> max_length (Maximum length of every sample, by default 512)
+
+-> device (In which device, we want to traing model, default automatic choose of device according to environment)
 
 ## Playing with Device selection
 Device selection is a very important step in SklTransformer. In general, the training device can be automatically selected 
-If we set up our machine with TPU, it will select as XLA
-If we set up our machine with GPU, it will select as CUDA
-If we set up our machine with CPU, it will select as CPU
+
+-> If we set up our machine with TPU, it will select as XLA
+
+-> If we set up our machine with GPU, it will select as CUDA
+
+-> If we set up our machine with CPU, it will select as CPU
+
 In general, we want to pass particularly suitable device we can pass it as parameter such as xla, cuda, cpu
+
 In order to training with TPU, it may be required 'torch_xla-1.9'. In this case, before importing SklTransformer, we need to install torch_xla-1.9
 
 ``` python
@@ -102,6 +122,4 @@ install_requires=[
 		'torch==1.9.0',
 		'tqdm==4.41.1',
 		'numpy==1.19.5',
-		'sklearn',
-		
-  ],
+		'sklearn',],
